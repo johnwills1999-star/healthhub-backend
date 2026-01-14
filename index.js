@@ -7,7 +7,7 @@ const BACKEND_URL = process.env.BACKEND_URL;
 
 app.get('/auth/login', (req, res) => {
   const redirectUri = req.query.redirect_uri || 'vibecode://oauth/callback';
-  const oneUpAuthUrl = `https://api.1up.health/connect/demo/clinical?client_id=${CLIENT_ID}&redirect_uri=${BACKEND_URL}/auth/callback&state=${encodeURIComponent(redirectUri)}`;
+  const oneUpAuthUrl = `https://api.1up.health/user-management/v1/user/auth-code?app_user_id=demo_user&client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&redirect_uri=${BACKEND_URL}/auth/callback&state=${encodeURIComponent(redirectUri)}`;
   res.redirect(oneUpAuthUrl);
 });
 
